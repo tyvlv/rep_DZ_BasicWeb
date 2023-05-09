@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "dz-basicweb"
+version = "0.1.0"
+description = ""
+authors = ["tychkov.vv <tyvl@yandex.ru>"]
+readme = "README.md"
+packages = [{include = "dz_basicweb"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
