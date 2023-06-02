@@ -1,10 +1,14 @@
 from django.shortcuts import render
 
+from catalog.models import Product
 
-# Create your views here.
 
 def home(request):
-    return render(request, 'catalog/home.html')
+    context = {
+        'object_list': Product.objects.all(),
+        'title': 'Каталог алкогольной продукции',
+    }
+    return render(request, 'catalog/home.html', context)
 
 
 def contacts(request):
@@ -13,4 +17,9 @@ def contacts(request):
         phone = request.POST.get('phone')
         message = request.POST.get('message')
         print(f"Пользователь: {name}, контактный телефон: {phone}, сообщение: {message}")
-    return render(request, 'catalog/contacts.html')
+
+    context = {
+        'title': 'Контакты',
+    }
+
+    return render(request, 'catalog/contacts.html', context)
